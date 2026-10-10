@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173f2b" />
+  <meta name="description" content="Touch Grass turns your mood, time, and interests into a simple real-world outdoor mission." />
+  <title>Touch Grass — Your Outside Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Touch Grass home">
+      <span class="brand-mark">✳</span><span>touch<span class="brand-light">grass</span></span>
+    </a>
+    <div class="top-note"><span class="status-dot"></span> A little less scrolling. A little more living.</div>
+    <button id="settingsBtn" class="icon-button" aria-label="AI setup" title="AI setup">⚙</button>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>THE OUTSIDE CLUB</span><span class="eyebrow-line"></span></div>
+        <h1>Your next<br><em>good thing</em><br>is outside.</h1>
+        <p class="hero-description">Tell us how you feel and how much time you have. Get one small outdoor mission, made for real life—not another endless feed.</p>
+        <div class="hero-tags"><span>✦ No streak pressure</span><span>↗ Go at your own pace</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of hills, sun, and a winding path">
+        <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+        <div class="hill hill-back"></div><div class="hill hill-front"></div>
+        <div class="path"></div><div class="tiny-person"><span class="person-head"></span><span class="person-body"></span><span class="person-leg leg-one"></span><span class="person-leg leg-two"></span></div>
+        <div class="art-label"><span class="label-icon">↗</span><span><b>MISSION:</b><br>STEP OUTSIDE</span></div>
+        <span class="floating-leaf leaf-one">✦</span><span class="floating-leaf leaf-two">✳</span>
+      </div>
+    </section>
+
+    <section class="planner card">
+      <div class="section-heading">
+        <div><span class="step-label">01 / YOUR MOMENT</span><h2>What sounds good right now?</h2></div>
+        <span class="small-caption">No wrong answers.</span>
+      </div>
+      <div class="choice-grid mood-grid" role="group" aria-label="Choose your mood">
+        <button class="choice mood-choice selected" data-mood="calm"><span class="choice-emoji">🌿</span><span><b>Find calm</b><small>Clear my head</small></span></button>
+        <button class="choice mood-choice" data-mood="energy"><span class="choice-emoji">⚡</span><span><b>Get moving</b><small>Wake up my body</small></span></button>
+        <button class="choice mood-choice" data-mood="curious"><span class="choice-emoji">🔎</span><span><b>Explore</b><small>Notice something new</small></span></button>
+        <button class="choice mood-choice" data-mood="social"><span class="choice-emoji">☀️</span><span><b>Connect</b><small>Bring someone along</small></span></button>
+      </div>
+
+      <div class="controls-row">
+        <div class="control-group">
+          <label for="timeSelect" class="step-label">02 / YOUR TIME</label>
+          <select id="timeSelect">
+            <option value="5">5 minutes</option><option value="15" selected>15 minutes</option><option value="30">30 minutes</option><option value="60">An hour</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="placeSelect" class="step-label">03 / YOUR SPACE</label>
+          <select id="placeSelect">
+            <option value="anywhere">Anywhere nearby</option><option value="garden">Garden or plants</option><option value="park">Park or green space</option><option value="street">Street or neighbourhood</option><option value="home">Balcony or doorstep</option>
+          </select>
+        </div>
+      </div>
+      <div class="planner-bottom">
+        <p><span class="spark">✦</span> Your mission should feel easy to start.</p>
+        <button id="generateBtn" class="primary-button"><span>Find my outside mission</span><span class="button-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section id="resultSection" class="result-section hidden" aria-live="polite">
+      <div class="result-top"><span class="step-label">YOUR FIELD NOTE</span><span id="aiBadge" class="ai-badge"><span class="status-dot"></span> LOCAL PLAN</span></div>
+      <div class="result-card">
+        <div class="result-illustration" id="resultIcon">🌱</div>
+        <div class="result-content">
+          <div id="resultCategory" class="result-category">A SMALL RESET</div>
+          <h2 id="resultTitle">Take a noticing walk</h2>
+          <p id="resultDescription">Step outside and look for three small things you usually walk past.</p>
+          <div class="mission-meta"><span>◷ <b id="resultTime">15 min</b></span><span>⌁ <b id="resultPlace">Anywhere nearby</b></span></div>
+          <div class="mission-steps"><h3>Your tiny plan</h3><ol id="resultSteps"></ol></div>
+          <div class="result-actions"><button id="doneBtn" class="primary-button">I did it <span>✓</span></button><button id="anotherBtn" class="secondary-button">Give me another ↻</button></div>
+          <p id="doneMessage" class="done-message hidden">That counts. You showed up for yourself. 🌱</p>
+        </div>
+      </div>
+      <p class="privacy-note"><span>⌂</span> Your choices stay in this browser. With local AI enabled, your prompt is sent to your own Ollama instance—not a hosted AI service.</p>
+    </section>
+
+    <section class="bottom-strip">
+      <div><span class="strip-icon">⌁</span><p><b>Small is enough.</b><br><span>Five minutes outside still counts.</span></p></div>
+      <div><span class="strip-icon">◉</span><p><b>Built for real life.</b><br><span>No points, pressure, or perfect routines.</span></p></div>
+      <div><span class="strip-icon">✳</span><p><b>Open by design.</b><br><span>Bring your own open-weight model.</span></p></div>
+    </section>
+    <footer><span>TOUCH GRASS © 2026</span><span>Made to help you close the tab.</span></footer>
+  </main>
+
+  <dialog id="settingsDialog" class="settings-dialog">
+    <form method="dialog" id="settingsForm">
+      <div class="dialog-heading"><div><span class="step-label">OPEN AI SETTINGS</span><h2>Bring your own model.</h2></div><button class="icon-button close-dialog" aria-label="Close">×</button></div>
+      <p class="dialog-copy">Connect to <b>Ollama</b> running on your computer to generate missions with an open-weight model. Without it, Touch Grass uses its built-in offline-friendly mission library.</p>
+      <label for="ollamaUrl">Ollama address</label><input id="ollamaUrl" type="url" value="http://localhost:11434" />
+      <label for="modelName">Model name</label><input id="modelName" type="text" value="llama3.2" placeholder="e.g. llama3.2" />
+      <div class="dialog-actions"><button type="button" id="testAiBtn" class="secondary-button">Test connection</button><button type="button" id="saveSettingsBtn" class="primary-button">Save settings</button></div>
+      <p id="settingsStatus" class="settings-status" role="status">AI is optional. Your local plan generator works without it.</p>
+      <p class="dialog-footnote">Tip: Install Ollama and pull a model first. The browser may require local CORS access; see README.md.</p>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
